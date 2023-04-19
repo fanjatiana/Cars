@@ -79,7 +79,7 @@
 </main>
 
 <footer>
-  <div class="container-fluid d-flex justify-content-between row">
+  <div class="container-fluid d-flex justify-content-between row footer fixed-bottom">
     <div class="col-4">
       <h6>Get in Touch</h6>
       <p>Phone +33 00 00 00 00</p>

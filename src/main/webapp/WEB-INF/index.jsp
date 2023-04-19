@@ -4,13 +4,16 @@
 <html>
 <head>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe"
+            crossorigin="anonymous"></script>
     <title>JSP - Hello World</title>
 </head>
 <body>
 <header>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary mb-5">
         <div class="container-fluid">
             <a class="navbar-brand" href="index">
                 <img src="img/logocar_60.png" class="card-img-top" alt="logo">
@@ -43,9 +46,9 @@
 </header>
 
 <main>
-    <div class="container-fluid d-flex flex-wrap justify-content-around mt-4 ">
+    <div class="container-fluid d-flex flex-wrap justify-content-around mt-4 mb-5">
         <c:forEach var="car" items="${cars}">
-            <div class="card" style="width: 18rem;">
+            <div class="card mt-4" style="width: 18rem;">
                 <img src=${car.imageUrl} class="card-img-top" alt="...">
                 <div class="card-body">
                     <h5 class="card-title">${car.name}</h5>
@@ -61,7 +64,7 @@
 </main>
 
 <footer>
-    <div class="container-fluid d-flex justify-content-between row">
+    <div class="container-fluid d-flex justify-content-between row footer fixed-bottom">
         <div class="col-4">
             <h6>Get in Touch</h6>
             <p>Phone +33 00 00 00 00</p>

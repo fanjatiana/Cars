@@ -24,7 +24,7 @@
               aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent d-flex">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="index">Home</a>
@@ -43,29 +43,29 @@
       </div>
     </div>
   </nav>
-  <h1>Login Page</h1>
+  <h1 class="text-center mb-4 mt-4">Login Page</h1>
 </header>
 
 <main>
-  <div class="container-fluid d-flex flex-column align-items-center justify-content-center row">
-    <div class="col-6" >
-      <form method="post" action="${pageContext.request.contextPath}/login">
-        <div class="mb-3 col-12">
+  <div class="container-fluid d-flex align-items-center justify-content-center row">
+    <div class="row" >
+      <form method="post" action="${pageContext.request.contextPath}/login" class="col-12 d-flex flex-column align-items-center">
+        <div class="mb-3 col-6">
           <label for="userRole" class="col-sm-2 col-form-label me-3"></label>
           <div class="col-sm-10">
             <input type="text" class="form-control" id="userRole" name="userRole" required>
           </div>
         </div>
-        <div class="mb-3 col-12">
-          <label for="inputPassword" class="col-sm-2 col-form-label me-3">Password</label>
+        <div class="mb-3 col-6">
+          <label for="inputPassword" class="col-sm-2 col-form-label me-3"></label>
           <div class="col-sm-10">
             <input type="password" class="form-control" id="inputPassword" name="password" required>
           </div>
         </div>
-        <div  class="mb-3 col-12">
+        <div  class="mb-3 col-6">
           <p>${isError}</p>
         </div>
-        <div  class="mb-3 col-12">
+        <div  class="mb-3 col-6 d-flex justify-content-center">
           <button type="submit" class="btn btn-primary col-4">Login</button>
         </div>
       </form>

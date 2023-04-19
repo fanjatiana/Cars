@@ -26,7 +26,7 @@ public class CarJdbcDao implements CarDao {
                 String description = resultSet.getString("description");
                 float price = resultSet.getFloat("price");
 
-                Car cars = new Car(id, name, type, imageUrl, description,price);
+                Car cars = new Car(id, name, type, imageUrl, description, price);
                 cars.getName();
                 cars.getType();
                 cars.getImageUrl();
@@ -40,6 +40,7 @@ public class CarJdbcDao implements CarDao {
         }
         return carList;
     }
+
     @Override
     public Car findAllCarsFromBdd(String name, String type, String imageUrl, String description, float price) {
         return null;
@@ -85,9 +86,7 @@ public class CarJdbcDao implements CarDao {
             throw new RuntimeException(e);
         }
         return insertOk;
-
     }
-
 
     @Override
     public Car findByCategory(String type) {
@@ -106,8 +105,8 @@ public class CarJdbcDao implements CarDao {
             resultSet = preparedStatement.executeQuery();
 
             if (resultSet.next()) {
-                thisCar = new Car(resultSet.getInt("id"), resultSet.getString("name"),resultSet.getString("type"),
-                        resultSet.getString("imageUrl"),resultSet.getString("description"),resultSet.getFloat("price"));
+                thisCar = new Car(resultSet.getInt("id"), resultSet.getString("name"), resultSet.getString("type"),
+                        resultSet.getString("imageUrl"), resultSet.getString("description"), resultSet.getFloat("price"));
                 System.out.println(thisCar);
                 return thisCar;
             }

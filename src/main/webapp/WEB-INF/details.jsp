@@ -58,14 +58,13 @@
           <p class="card-text">${description}</p>
           <p class="card-text">${price}</p>
           <p class="card-text">${type}</p>
-          <a href="details" class="btn btn-primary">Details</a>
         </div>
       </div>
   </div>
 </main>
 
 <footer>
-  <div class="container-fluid d-flex justify-content-between row">
+  <div class="container-fluid d-flex justify-content-between row footer fixed-bottom">
     <div class="col-4">
       <h6>Get in Touch</h6>
       <p>Phone +33 00 00 00 00</p>

@@ -21,14 +21,14 @@ public class AddCarCategory extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        String type=req.getParameter("type");
+        String type = req.getParameter("type");
 
         boolean newCategoryAdded = false;
         try {
             newCategoryAdded = new CarJdbcDao().createCategory(type);
-            if(newCategoryAdded){
+            if (newCategoryAdded) {
                 resp.sendRedirect(req.getContextPath() + "/adminSession/form-add-category");
-            }else{
+            } else {
                 System.out.println("error!");
             }
         } catch (SQLException e) {
