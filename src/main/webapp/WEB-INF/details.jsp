@@ -1,3 +1,4 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: fandja
@@ -45,8 +46,11 @@
   </nav>
   <h1></h1>
 </header>
+
 <main>
+
   <div class="container-fluid d-flex flex-wrap justify-content-around mt-4">
+
       <div class="card" style="width: 18rem;">
         <img src=${imageUrl} class="card-img-top" alt="...">
         <div class="card-body">
@@ -59,6 +63,7 @@
       </div>
   </div>
 </main>
+
 <footer>
   <div class="container-fluid d-flex justify-content-between row">
     <div class="col-4">

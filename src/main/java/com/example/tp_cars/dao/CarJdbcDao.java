@@ -91,11 +91,13 @@ public class CarJdbcDao implements CarDao {
             if (resultSet.next()) {
                 thisCar = new Car(resultSet.getInt("id"), resultSet.getString("name"),resultSet.getString("type"),
                         resultSet.getString("imageUrl"),resultSet.getString("description"),resultSet.getFloat("price"));
+                System.out.println(thisCar);
+                return thisCar;
             }
         } catch (SQLException e) {
             e.printStackTrace();
         }
-        return thisCar;
+        return null;
     }
 
     @Override

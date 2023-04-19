@@ -17,8 +17,7 @@ public class CarsService {
     }
 
     public Car fetchCarById(int id) {
-        new CarJdbcDao().findById(id);
-        return car;
+       return new CarJdbcDao().findById(id);
     }
 
     public Set<String> fetchAllCategory() {

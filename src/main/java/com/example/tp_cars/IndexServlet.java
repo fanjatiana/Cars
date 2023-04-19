@@ -23,20 +23,27 @@ public class IndexServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-     String btnId = req.getParameter("btnDetails");
-     HttpSession session = req.getSession();
-     //Car car = new CarsService().fetchCarById(Integer.parseInt(btnId));
-     session.setAttribute("buttonId", btnId);
-      System.out.println(session+"sgsdg");
-      System.out.println( session);
-        resp.sendRedirect(req.getContextPath() + "/details");
+        String btnId = req.getParameter("btnDetails");
+        HttpSession session = req.getSession();
+        session.setAttribute("buttonId", btnId);
+        System.out.println("id session" + session + " " + btnId);
 
-       /* if (car != null) {
-            req.setAttribute("car", car);
+        Car car = new CarJdbcDao().findById(Integer.valueOf(btnId));
+        System.out.println(car.getPrice());
+        String name = car.getName();
+        String type= car.getType();
+        String description = car.getDescription();
+        String imageUrl = car.getImageUrl();
+        Float price = car.getPrice();
 
-        } else {
-            req.getRequestDispatcher("/WEB-INF/").forward(req, resp);
-            session.invalidate();
-        }*/
+        req.setAttribute("name",name);
+        req.setAttribute("type",type);
+        req.setAttribute("description",description);
+        req.setAttribute("imageUrl",imageUrl);
+        req.setAttribute("price",price);
+
+            req.getRequestDispatcher("/WEB-INF/details.jsp").forward(req, resp);
+            resp.sendRedirect(req.getContextPath() + "/details");
+
     }
 }

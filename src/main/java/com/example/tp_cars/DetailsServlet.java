@@ -17,7 +17,8 @@ public class DetailsServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         HttpSession session = req.getSession();
-
+        int id = Integer.parseInt(req.getParameter("id"));
+        System.out.println(session);
         System.out.println( req.getSession().getAttribute("buttonId"));
         req.getRequestDispatcher("/WEB-INF/details.jsp").forward(req, resp);
     }
