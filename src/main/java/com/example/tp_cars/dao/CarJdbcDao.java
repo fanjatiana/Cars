@@ -17,6 +17,7 @@ public class CarJdbcDao implements CarDao {
             Statement statement = connection.createStatement();
             ResultSet resultSet = statement.executeQuery("SELECT id,name,type,imageUrl,description,price FROM cars");
 
+
             while (resultSet.next()) {
                 int id = resultSet.getInt("id");
                 String name = resultSet.getString("name");
@@ -51,7 +52,23 @@ public class CarJdbcDao implements CarDao {
 
     @Override
     public boolean create(Car entity) {
-        return false;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        Connection connection = ConnexionManager.getINSTANCE();
+        boolean insertOk = false;
+        try {
+            preparedStatement = connection.prepareStatement("INSERT INTO cars (name, type, imageUrl,description,price) VALUES (?,?,?,?,?)");
+            preparedStatement.setString(1, entity.getName()); // définir des paramètre
+            preparedStatement.setString(2, entity.getType());
+            preparedStatement.setString(3, entity.getImageUrl());
+            preparedStatement.setString(4, entity.getDescription());
+            preparedStatement.setFloat(5, entity.getPrice());
+            int rowsAffected = preparedStatement.executeUpdate();
+            insertOk = rowsAffected > 0;
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return insertOk;
     }
 
 

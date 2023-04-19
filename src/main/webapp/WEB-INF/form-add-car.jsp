@@ -60,25 +60,25 @@
 
 <main>
   <div class="container-fluid d-flex flex-wrap justify-content-around mt-4 ">
-    <form action="form-posts" method="${pageContext.request.contextPath}/form-add-car">
-      <div class="mb-3">
-        <select class="form-select" aria-label="Default select example">
-          <option value="1" selected>Electrique</option>
-          <option value="2">Hybride</option>
-        </select>
-      </div>
+    <form action="${pageContext.request.contextPath}/adminSession/form-add-car" method="post">
       <div class="mb-3">
         <label for="name" class="form-label">Name</label>
         <input type="text" class="form-control" id="name" name="name" required>
       </div>
       <div class="mb-3">
-        <label for="description" class="form-label">Description</label>
-        <input type="text" maxlength="20" class="form-control" id="description" name="description" required>
+        <select class="form-select" aria-label="Default select example" name="type">
+          <option value="Electrique" selected>Electrique</option>
+          <option value="Hybride">Hybride</option>
+        </select>
       </div>
       <div class="mb-3">
         <Label for="uploadImage" class="contrôle-label"> Upload an Image
           <Input id="uploadImage" name="imageUrl" type="file" classe multiple="file-chargement" required>
         </Label>
+      </div>
+      <div class="input-group">
+        <label for="description" class="form-label"></label>
+        <textarea class="form-control" aria-label="With textarea" name="description" maxlength="200" id="description"></textarea>
       </div>
       <div class="mb-3">
         <label for="price" class="form-label">Price</label>
