@@ -3,7 +3,7 @@ package com.example.tp_cars.service;
 import com.example.tp_cars.dao.CarJdbcDao;
 import com.example.tp_cars.model.Car;
 
-import java.util.ArrayList;
+import java.sql.SQLException;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -32,5 +32,9 @@ public class CarsService {
     public Car createNewCar(String name, String type, String imageUrl, String description, float price) {
         Car newCar= new Car(++id, name, type, imageUrl,description,price);
         return newCar;
+    }
+
+    public boolean createNewCategory(String category) throws SQLException {
+        return new CarJdbcDao().createCategory(category);
     }
 }

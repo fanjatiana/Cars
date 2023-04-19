@@ -31,19 +31,19 @@ public class IndexServlet extends HttpServlet {
         Car car = new CarJdbcDao().findById(Integer.valueOf(btnId));
         System.out.println(car.getPrice());
         String name = car.getName();
-        String type= car.getType();
+        String type = car.getType();
         String description = car.getDescription();
         String imageUrl = car.getImageUrl();
         Float price = car.getPrice();
 
-        req.setAttribute("name",name);
-        req.setAttribute("type",type);
-        req.setAttribute("description",description);
-        req.setAttribute("imageUrl",imageUrl);
-        req.setAttribute("price",price);
+        req.setAttribute("name", name);
+        req.setAttribute("type", type);
+        req.setAttribute("description", description);
+        req.setAttribute("imageUrl", imageUrl);
+        req.setAttribute("price", price);
 
-            req.getRequestDispatcher("/WEB-INF/details.jsp").forward(req, resp);
-            resp.sendRedirect(req.getContextPath() + "/details");
+        req.getRequestDispatcher("/WEB-INF/details.jsp").forward(req, resp);
+        resp.sendRedirect(req.getContextPath() + "/details");
 
     }
 }

@@ -71,6 +71,23 @@ public class CarJdbcDao implements CarDao {
         return insertOk;
     }
 
+    public boolean createCategory(String type) throws SQLException {
+        PreparedStatement preparedStatement;
+        Connection connection = ConnexionManager.getINSTANCE();
+        boolean insertOk = false;
+        try {
+            preparedStatement = connection.prepareStatement("INSERT INTO cars (type) VALUES (?)");
+            preparedStatement.setString(1, type);
+            int rowsAffected = preparedStatement.executeUpdate();
+            insertOk = rowsAffected > 0;
+
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return insertOk;
+
+    }
+
 
     @Override
     public Car findByCategory(String type) {
