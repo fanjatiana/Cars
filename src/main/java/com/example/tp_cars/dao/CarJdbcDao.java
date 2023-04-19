@@ -55,6 +55,10 @@ public class CarJdbcDao implements CarDao {
     }
 
 
+    @Override
+    public Car findByCategory(String type) {
+        return null;
+    }
 
     @Override
     public Car findById(Integer carId) {
