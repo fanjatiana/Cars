@@ -3,7 +3,7 @@
   Created by IntelliJ IDEA.
   User: fandja
   Date: 19/04/2023
-  Time: 18:21
+  Time: 18:42
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
@@ -36,7 +36,7 @@
           <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
                aria-expanded="false">
-             Administration
+              Administration
             </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="form-add-car">add car</a></li>
@@ -48,7 +48,7 @@
             <a class="nav-link" href="${pageContext.request.contextPath}/adminSession/logout">Logout</a>
           </li>
         </ul>
-        <form class="d-flex" role="search">
+        <form class="d-flex" method="post">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
         </form>
@@ -60,21 +60,13 @@
 
 <main>
   <div class="container-fluid d-flex flex-wrap justify-content-around mt-4 ">
-    <c:forEach var="car" items="${cars}">
-      <div class="card" style="width: 18rem;">
-        <img src=${car.imageUrl} class="card-img-top" alt="...">
-        <div class="card-body">
-          <h5 class="card-title">${car.name}</h5>
-          <p class="card-text">${car.type}</p>
-          <form method="post" action="${pageContext.request.contextPath}/admin-home-page">
-            <button type="submit" class="btn btn-success" name="btnDetails" value="${car.id}">Details
-            </button>
-            <button type="submit" class="btn btn-success" name="btnDetails" value="${car.id}">Delete
-            </button>
-          </form>
-        </div>
-      </div>
-    </c:forEach>
+   <h2>ARE YOU SURE YOU WANT TO LOGOUT ?</h2>
+    <form method="post" action="${pageContext.request.contextPath}/adminSession/logout">
+      <button type="submit" class="btn btn-success" name="quitter" value="quitter">YES
+      </button>
+      <button type="submit" class="btn btn-warning" name="rester" value="rester">NO
+      </button>
+    </form>
   </div>
 </main>
 
