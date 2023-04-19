@@ -10,12 +10,55 @@
 </head>
 <body>
 <header>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="index">
+                <img src="img/logocar_60.png" class="card-img-top" alt="logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="index">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="category-list">Category List</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Dropdown
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li>
+                                <hr class="dropdown-divider">
+                            </li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </li>
 
-    <h1>Bienvenue</h1>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login">Login</a>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+    <h1></h1>
 </header>
 
 <main>
-    <div class="container-fluid d-flex flex-wrap justify-content-around mt-4">
+    <div class="container-fluid d-flex flex-wrap justify-content-around mt-4 ">
         <c:forEach var="car" items="${cars}">
             <div class="card" style="width: 18rem;">
                 <img src=${car.imageUrl} class="card-img-top" alt="...">
@@ -23,7 +66,8 @@
                     <h5 class="card-title">${car.name}</h5>
                     <p class="card-text">${car.type}</p>
                     <form method="post" action="${pageContext.request.contextPath}/index">
-                        <button type="submit" class="btn btn-success" name="btnDetails"  value="${car.id}">Details</button>
+                        <button type="submit" class="btn btn-success" name="btnDetails" value="${car.id}">Details
+                        </button>
                     </form>
                 </div>
             </div>
@@ -31,7 +75,26 @@
     </div>
 </main>
 
-<footer></footer>
+<footer>
+    <div class="container-fluid d-flex justify-content-between row">
+        <div class="col-4">
+            <h6>Get in Touch</h6>
+            <p>Phone +33 00 00 00 00</p>
+            <p>Email: CarEE@example.fr</p>
+            <p>Fax: +33 00 00 00 00 00 </p>
+        </div>
+        <div class="col-4">
+            <img src="<c:url value='/img/logocar_60.png'/>" class="card-img-top" alt="logo">
+            <p>CarEE is an awesome website with management is easy</p>
+        </div>
+        <div class="col-4">
+            <h6>Location</h6>
+            <p>CarEE inc.</p>
+            <p>France</p>
+            <p>02620</p>
+        </div>
+    </div>
+</footer>
 
 </body>
 </html>
