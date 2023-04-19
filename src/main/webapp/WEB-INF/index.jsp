@@ -22,9 +22,8 @@
                 <div class="card-body">
                     <h5 class="card-title">${car.name}</h5>
                     <p class="card-text">${car.type}</p>
-                    <form method="post" action="index">
-                        <input type="hidden" name="buttonId" value="${car.id}">
-                        <button type="submit" class="btn btn-success"  id="${car.id}">Details</button>
+                    <form method="post" action="${pageContext.request.contextPath}/index">
+                        <button type="submit" class="btn btn-success" name="btnDetails"  value="${car.id}">Details</button>
                     </form>
                 </div>
             </div>

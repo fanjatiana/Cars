@@ -1,5 +1,8 @@
 package com.example.tp_cars.model;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Car {
     private int id;
     private String name;
@@ -20,12 +23,43 @@ public class Car {
         this.price = price;
     }
 
+
+    private static List<Car> cars = new ArrayList<>();
+
     public int getId() {
-        return id;
+        return this.id;
     }
 
     public String getName() {
         return name;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
+    public static void setCars(List<Car> cars) {
+        Car.cars = cars;
     }
 
     public String getType() {

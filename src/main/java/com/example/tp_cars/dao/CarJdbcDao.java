@@ -2,10 +2,7 @@ package com.example.tp_cars.dao;
 
 import com.example.tp_cars.model.Car;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,7 +26,6 @@ public class CarJdbcDao implements CarDao {
                 float price = resultSet.getFloat("price");
 
                 Car cars = new Car(id, name, type, imageUrl, description,price);
-                cars.getId();
                 cars.getName();
                 cars.getType();
                 cars.getImageUrl();
@@ -61,8 +57,24 @@ public class CarJdbcDao implements CarDao {
 
 
     @Override
-    public Car findById(Integer integer) {
-        return null;
+    public Car findById(Integer carId) {
+        Car thisCar = null;
+        PreparedStatement preparedStatement;
+        ResultSet resultSet;
+        Connection connection = ConnexionManager.getINSTANCE();
+        try {
+            preparedStatement = connection.prepareStatement("SELECT id,name,type,imageUrl,description,price FROM cars WHERE id = ?");
+            preparedStatement.setInt(1, carId); // définir des paramètre
+            resultSet = preparedStatement.executeQuery();
+
+            if (resultSet.next()) {
+                thisCar = new Car(resultSet.getInt("id"), resultSet.getString("name"),resultSet.getString("type"),
+                        resultSet.getString("imageUrl"),resultSet.getString("description"),resultSet.getFloat("price"));
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return thisCar;
     }
 
     @Override
